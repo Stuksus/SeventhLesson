@@ -1,7 +1,16 @@
 <?php
 error_reporting(E_ERROR);
-$n = 0;
-$json = file_get_contents("test1.json");
+
+
+$json = "[
+  {
+    \"question1\": \"4\",
+    \"question2\": \"5\",
+    \"question3\": \"10\",
+    \"question4\": \"2\",
+    \"question5\": \"36\"
+  }
+]";
 $decode = json_decode($json, true);
 if ($decode[0]['question1'] == $_POST['question1']) {
     $n += 1;
@@ -25,6 +34,7 @@ if (isset($_POST['OK'])) {
 ?>
 
 <form method="post">
+    Имя: <input name="name"><br>
     <p><b>2 x 2 =</b><Br>
         <input type="radio" name="question1" value="4"> 4<Br>
         <input type="radio" name="question1" value="5"> 5<Br>
