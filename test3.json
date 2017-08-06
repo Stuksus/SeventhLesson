@@ -1,0 +1,28 @@
+[
+  {
+    "question1": "385",
+    "question2": "400",
+    "question3": "991",
+    "question4": "400",
+    "question5": "0"
+  },
+  {
+    "answer": "235 + 150 = ",
+    "answer2": "300 + 100 = ",
+    "answer3": "1000 - 9 = ",
+    "answer4": "600 - 200 = ",
+    "answer5": "1 - 1 = "
+  },
+  {
+    "possibleAnswer1.1": "635",
+    "possibleAnswer1.2": "666",
+    "possibleAnswer2.1": "750",
+    "possibleAnswer2.2": "425",
+    "possibleAnswer3.1": "567",
+    "possibleAnswer3.2": "749",
+    "possibleAnswer4.1": "0",
+    "possibleAnswer4.2": "1",
+    "possibleAnswer5.1": "45",
+    "possibleAnswer5.2": "2"
+  }
+]

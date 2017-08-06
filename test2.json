@@ -1,0 +1,28 @@
+[
+  {
+    "question1": "25",
+    "question2": "35",
+    "question3": "56 339",
+    "question4": "11",
+    "question5": "300"
+  },
+  {
+    "answer": "5 x 5 = ",
+    "answer2": "5 x 7 = ",
+    "answer3": "1063 x 53 = ",
+    "answer4": "99 / 9 = ",
+    "answer5": "50 x 6 = "
+  },
+  {
+    "possibleAnswer1.1": "3",
+    "possibleAnswer1.2": "2",
+    "possibleAnswer2.1": "9",
+    "possibleAnswer2.2": "12",
+    "possibleAnswer3.1": "14",
+    "possibleAnswer3.2": "63",
+    "possibleAnswer4.1": "0",
+    "possibleAnswer4.2": "10",
+    "possibleAnswer5.1": "13",
+    "possibleAnswer5.2": "100"
+  }
+]
