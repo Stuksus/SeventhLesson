@@ -2,18 +2,20 @@
 
 error_reporting(E_ERROR);
 
-$address = explode(" ", trim(file_get_contents('addressFile')));
-$Name = explode(" ", trim(file_get_contents('nameFile')));
+$address = scandir(__DIR__ . '/test/');
+array_shift($address);
+array_shift($address);
 array_unshift($address, null);
 unset($address[0]);
+
+$Name = explode(" ", trim(file_get_contents('nameFile')));
 array_unshift($Name, null);
 unset($Name[0]);
-$address = array_unique($address);
 
 
 $number = $_POST['numberTest'];
 
-if (count($Name) < $number) {
+if (count($address) < $number) {
     header('HTTP/1.1 404 Not Found');
 
 } elseif (isset($_POST['GOOD'])) {
@@ -38,7 +40,7 @@ if (count($Name) < $number) {
     <input type="submit" name="GOOD" value="Перейти к тесту">
 </form>
 <?php for ($i = 1, $size = count($Name); $i <= $size; $i++) :
-    echo "Тест № $i : $Name[$i]<br>";
+    echo "Тест № $i: $Name[$i]<br>";
 endfor;
 ?>
 </body>

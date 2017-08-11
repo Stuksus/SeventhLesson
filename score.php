@@ -6,6 +6,7 @@
  * Time: 4:21
  */
 
+
 class score
 {
     public function Test_Score($number)
