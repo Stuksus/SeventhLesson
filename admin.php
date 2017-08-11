@@ -36,10 +36,6 @@ trim(fwrite($Name, $nameVar . " "));       //записываем имена в 
 fclose($Name);       // закрываем файл
 
 
-$file = trim(file_get_contents('addressFile')); // получаем данные из файла addressName
-$ex = array_unique(explode(" ", $file)); // преобразуем строику полученную из файла в массив
-
-
 if (move_uploaded_file($json['tmp_name'], __DIR__ . "/test/$filename")) {       //проверяем файл на наличие на сервере
     echo 'Тест успешно загружен';
 } else {
