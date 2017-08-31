@@ -21,27 +21,30 @@
 error_reporting(E_ERROR);
 
 
-if (is_null($_FILES['uploadFile'])) {
-    echo 'Добавьте новый тест на сайт';
+if ((is_null($_FILES['uploadFile']) || empty($_POST['name'])) && isset($_POST['submit'])) {
+    echo 'Вы не загрузили  новый тест на сайт или не ввели свое имя, попробуйте снова.';
     exit();
+}else{
+    $json = $_FILES['uploadFile'];
+    $filename = $json['name'];
+    $nameVar = $_POST['name'];
+
 }
 
 
-$json = $_FILES['uploadFile'];      //получаем данные о загруженном файле
-$filename = $json['name'];          // сохраняем в переменную его имя
-$nameVar = $_POST['name'];
+
+
 
 $Name = fopen('nameFile', 'a+'); //открываем файл, в котором будут храниться  именя файлов загруженных на сервер
 trim(fwrite($Name, $nameVar . " "));       //записываем имена в файл черех пробел и удаляем пробелы на кончах файла
 fclose($Name);       // закрываем файл
 
 
+if (isset($_POST['submit'])){
 if (move_uploaded_file($json['tmp_name'], __DIR__ . "/test/$filename")) {       //проверяем файл на наличие на сервере
     echo 'Тест успешно загружен';
 } else {
     echo 'К сожалению, произошла ошибка, загрузите файл повторно';
 
 }
-
-
-
+}

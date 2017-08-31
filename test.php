@@ -9,30 +9,31 @@ $n = 0;
 $testName = $_GET['load'];
 $json = file_get_contents(__DIR__ . "/test/$testName");
 $decode = json_decode($json, true);
-if ($decode[0]['question1'] == $_POST['question1']) {
-    $n += 1;
-}
-if ($decode[0]["question2"] == $_POST['question2']) {
-    $n += 1;
-}
-if ($decode[0]['question3'] == $_POST['question3']) {
-    $n += 1;
-}
-if ($decode[0]['question4'] == $_POST['question4']) {
-    $n += 1;
-}
-if ($decode[0]['question5'] == $_POST['question5']) {
-    $n += 1;
+
+
+for ($i = 1, $quantity = count($decode[0]); $i <= $quantity; $i++) {
+
+    if ($decode[0]['question' . $i] == $_POST['question' . $i]) {
+        $n += 1;
+    }
 }
 
+
 $score = $score->Test_Score($n);
+if (isset($_POST['OK']) && empty($_POST['name'])) {
+    echo
+    "<script>alert('Вы не ввели свое имя! Пожалуйста, введите свое имя.');",
+        "location.href='" . $_SERVER['REQUEST_URI'], "';",
+    "</script>";
+    die();
+
+}
 $name = $_POST['name'];
 if (isset($_POST['OK'])) {
 
     echo "<h1>Правильных ответов $n из 5</h1>";
     echo "<form method=\"post\" action=\"list.php\"><input type=\"submit\" value=\"В главное меню\"></form>";
     echo "<h2>$name, Ваша оценка: $score</h2>";
-
 
 
 }
@@ -48,7 +49,7 @@ if (isset($_POST['OK'])) {
 </head>
 <body>
 <form method="post">
-    <input name="name">
+    Введите свое имя: <input name="name" required>* (Обязательное поле)
     <p><b><?= $decode[1]['answer'] ?></b><Br>
         <input type="radio" name="question1" value="<?= $decode[0]["question1"] ?>"> <?= $decode[0]["question1"] ?><Br>
         <input type="radio" name="question1"

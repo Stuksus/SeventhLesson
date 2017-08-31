@@ -19,7 +19,7 @@ if (count($address) < $number) {
     header('HTTP/1.1 404 Not Found');
 
 } elseif (isset($_POST['GOOD'])) {
-    header("Location:  http://university.netology.ru/u/smetanin/me7/test.php?load=$address[$number]");
+    header("Location:  test.php?load=$address[$number]");
 }
 
 ?>
